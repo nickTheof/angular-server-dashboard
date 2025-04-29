@@ -1,0 +1,21 @@
+<div class="bg-white rounded-md shadow-md p-8 min-w-80">
+  <article class="flex flex-col gap-4">
+    <header class="flex flex-row justify-between items-center">
+      <img class="size-4 rounded-full" src="globe.png" alt="A globe" />
+      <h2 class="text-sm font-bold">Traffic</h2>
+    </header>
+    <div class="text-sm font-thin flex flex-col gap-y-2">
+      <p>Last 7 days</p>
+      <div
+        class="h-40 flex flex-row items-end gap-2 px-2 py-0 border-b-[1px] border-[#76737a]"
+      >
+        @for (dataPoint of dummyTrafficData(); track dataPoint.id) {
+        <div
+          class="grow bg-gradient-to-b from-[#36166f] to-[#ca19a4] rounded-t-sm"
+          [style.height]="(dataPoint.value / maxTraffic) * 100 + '%'"
+        ></div>
+        }
+      </div>
+    </div>
+  </article>
+</div>
