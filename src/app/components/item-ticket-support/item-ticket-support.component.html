@@ -1,1 +1,14 @@
-<app-ticket></app-ticket>
+<div>
+  <ul class="flex flex-col gap-y-2 items-start w-full">
+    @for (ticket of tickets; track ticket.id) {
+    <li class="w-full">
+      <app-ticket [data]="ticket"></app-ticket>
+    </li>
+    } @empty {
+    <li>No tickets available</li>
+    }
+  </ul>
+</div>
+<div class="flex flex-col gap-y-2 text-sm font-thin">
+  <app-ticket-form (add)="onAdd($event)"></app-ticket-form>
+</div>

@@ -1,6 +1,7 @@
 import {
   Component,
   DestroyRef,
+  effect,
   inject,
   OnDestroy,
   OnInit,
@@ -17,7 +18,13 @@ export class ItemServerStatusComponent implements OnInit {
   currentStatus = signal<'online' | 'offline' | 'unknown'>('online');
   private destroyRef = inject(DestroyRef);
 
-  constructor() {}
+  constructor() {
+    //Registers an "effect" that will be scheduled & executed whenever the signals that it reads changes.
+    // effect() must be run in injection context, unless the injector option is manually specified.
+    effect(() => {
+      console.log(this.currentStatus());
+    });
+  }
 
   ngOnInit(): void {
     const interval = setInterval(() => {

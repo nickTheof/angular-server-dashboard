@@ -6,7 +6,7 @@ import { Component, input } from '@angular/core';
   templateUrl: './dashboard-item.component.html',
   styleUrl: './dashboard-item.component.css',
   host: {
-    class: 'min-w-80 p-8 bg-gray-200 rounded-md shadow-md',
+    class: 'w-[400px] p-8 bg-gray-200 rounded-md shadow-md overflow-auto',
   },
 })
 export class DashboardItemComponent {

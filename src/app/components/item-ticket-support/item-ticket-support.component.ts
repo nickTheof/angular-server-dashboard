@@ -1,13 +1,28 @@
 import { Component } from '@angular/core';
 import { TicketComponent } from '../tickets/ticket/ticket.component';
+import { TicketFormComponent } from '../tickets/ticket-form/ticket-form.component';
+import { Ticket } from '../../shared/interfaces/ticket';
 
 @Component({
   selector: 'app-item-ticket-support',
-  imports: [TicketComponent],
+  imports: [TicketComponent, TicketFormComponent],
   templateUrl: './item-ticket-support.component.html',
   styleUrl: './item-ticket-support.component.css',
   host: {
-    class: 'flex flex-col gap-y-2 text-sm font-thin ',
+    class: 'min-w-[350px] grid grid-cols-2 gap-2',
   },
 })
-export class ItemTicketSupportComponent {}
+export class ItemTicketSupportComponent {
+  tickets: Ticket[] = [];
+
+  onAdd(ticketData: { title: string; text: string }) {
+    const ticket: Ticket = {
+      title: ticketData.title,
+      id: Math.random().toString(),
+      request: ticketData.text,
+      status: 'open',
+    };
+
+    this.tickets.push(ticket);
+  }
+}

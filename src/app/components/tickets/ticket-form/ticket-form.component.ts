@@ -2,6 +2,7 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
+  output,
   viewChild,
   ViewChild,
 } from '@angular/core';
@@ -18,6 +19,7 @@ import { ButtonComponent } from '../../../shared/ui/button/button.component';
 export class TicketFormComponent implements AfterViewInit {
   // @ViewChild('form') private form?: ElementRef<HTMLFormElement>;
   private form = viewChild.required<ElementRef<HTMLFormElement>>('form');
+  add = output<{ title: string; text: string }>();
 
   ngAfterViewInit(): void {
     console.log('AFTER VIEW INIT');
@@ -25,8 +27,7 @@ export class TicketFormComponent implements AfterViewInit {
   }
 
   onSubmit(title: string, ticketText: string) {
-    console.log(title);
-    console.log(ticketText);
+    this.add.emit({ title: title, text: ticketText });
     this.form().nativeElement.reset();
   }
 }
