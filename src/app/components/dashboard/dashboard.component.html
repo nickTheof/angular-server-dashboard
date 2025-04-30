@@ -1,7 +1,22 @@
 <main
-  class="mt-5 flex flex-col md:flex-row gap-y-4 md:gap-y-0 justify-around items-center"
+  class="mt-5 flex flex-col md:flex-row gap-y-4 md:gap-y-0 justify-center gap-x-8 items-center"
 >
-  <app-item-server-status></app-item-server-status>
-  <app-item-traffic></app-item-traffic>
-  <app-item-ticket-support></app-item-ticket-support>
+  <app-dashboard-item
+    [image]="{ src: 'status.png', alt: 'A signal symbol' }"
+    title="Server Status"
+    ><app-item-server-status></app-item-server-status>
+  </app-dashboard-item>
+
+  <app-dashboard-item
+    [image]="{ src: 'globe.png', alt: 'A globe' }"
+    title="Traffic"
+  >
+    <app-item-traffic></app-item-traffic>
+  </app-dashboard-item>
+
+  <app-dashboard-item
+    [image]="{ src: 'list.png', alt: 'A list of items' }"
+    title="Support Tickets"
+    ><app-item-ticket-support></app-item-ticket-support>
+  </app-dashboard-item>
 </main>

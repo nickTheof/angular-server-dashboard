@@ -1,0 +1,6 @@
+<div>
+  <label class="font-bold text-sm" [for]="title()?.toLowerCase()">{{
+    title()
+  }}</label>
+  <ng-content select="input, textarea"> </ng-content>
+</div>

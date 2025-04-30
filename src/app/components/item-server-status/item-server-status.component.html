@@ -1,20 +1,12 @@
-<div class="bg-white rounded-md shadow-md p-8 min-w-80">
-  <article class="flex flex-col gap-4">
-    <header class="flex flex-row justify-between items-center">
-      <img class="size-4 rounded-full" src="status.png" alt="A signal symbol" />
-      <h2 class="text-sm font-bold">Server Status</h2>
-    </header>
-    <div class="text-sm font-thin flex flex-col gap-y-2">
-      @if (currentStatus() === 'online') {
-      <p>Servers are online</p>
-      <p>All systems are operational.</p>
-      } @else if (currentStatus() === 'offline') {
-      <p>Servers are offline</p>
-      <p>Functionality should be restored soon.</p>
-      } @else {
-      <p>Server status is unknown</p>
-      <p>Fetching server status failed.</p>
-      }
-    </div>
-  </article>
+<div class="flex flex-col gap-y-2 text-sm font-thin first-of-type:">
+  @if (currentStatus() === 'online') {
+  <p class="text-lg animate-pulse text-purple-600">Servers are online</p>
+  <p>All systems are operational.</p>
+  } @else if (currentStatus() === 'offline') {
+  <p class="text-lg animate-pulse text-red-600">Servers are offline</p>
+  <p>Functionality should be restored soon.</p>
+  } @else {
+  <p class="text-lg animate-pulse text-gray-500">Server status is unknown</p>
+  <p>Fetching server status failed.</p>
+  }
 </div>

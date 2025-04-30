@@ -5,6 +5,9 @@ import { Component, signal } from '@angular/core';
   imports: [],
   templateUrl: './item-traffic.component.html',
   styleUrl: './item-traffic.component.css',
+  host: {
+    class: 'flex flex-col gap-y-2 text-sm font-thin',
+  },
 })
 export class ItemTrafficComponent {
   dummyTrafficData = signal<{ id: string; value: number }[]>([

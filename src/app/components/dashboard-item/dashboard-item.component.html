@@ -1,1 +1,7 @@
-<p>dashboard-item works!</p>
+<article class="flex flex-col gap-4">
+  <header class="flex flex-row justify-between items-center">
+    <img class="size-4 rounded-full" [src]="image().src" [alt]="image().alt" />
+    <h2 class="text-sm font-bold uppercase">{{ title() }}</h2>
+  </header>
+  <ng-content></ng-content>
+</article>

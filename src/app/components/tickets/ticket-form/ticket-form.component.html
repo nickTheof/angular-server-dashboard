@@ -1,0 +1,26 @@
+<form class="flex flex-col items-start gap-y-4">
+  <app-control title="Title">
+    <input
+      class="mt-2 block w-full h-8 bg-white rounded-sm shadow-sm p-2"
+      id="title"
+      name="title"
+      type="text"
+    />
+  </app-control>
+  <app-control title="Request">
+    <textarea
+      class="mt-2 block w-full bg-white rounded-sm shadow-sm p-2"
+      id="request"
+      name="request"
+      rows="5"
+    ></textarea>
+  </app-control>
+  <button
+    class="bg-purple-800 hover:bg-purple-700 px-8 py-2 text-white text-sm transition-all ease-in duration-200 rounded-sm cursor-pointer"
+    type="submit"
+    appButton
+  >
+    Submit
+    <span ngProjectAs="icon">&#10153;</span>
+  </button>
+</form>
