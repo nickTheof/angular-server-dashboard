@@ -1,4 +1,7 @@
 import {
+  AfterContentInit,
+  afterNextRender,
+  afterRender,
   Component,
   ContentChild,
   contentChild,
@@ -17,7 +20,7 @@ import {
     '(click)': 'onClick()',
   },
 })
-export class ControlComponent {
+export class ControlComponent implements AfterContentInit {
   title = input<string>();
 
   // Playing with accessing Host Elements Programmatically and adding event listeners to Host Elements
@@ -29,6 +32,29 @@ export class ControlComponent {
     contentChild.required<ElementRef<HTMLInputElement | HTMLTextAreaElement>>(
       'input'
     );
+
+  /*
+The afterRender and afterNextRender functions let you register a render callback to be invoked after Angular has finished rendering all components on the page into the DOM.
+These functions are different from the other lifecycle hooks described. Rather than a class method, they are standalone functions that accept a callback. The execution of render callbacks are not tied to any specific component instance, but instead an application-wide hook.
+afterRender and afterNextRender must be called in an injection context, typically a component's constructor.
+  */
+
+  constructor() {
+    // Listen all changes anywhere
+    afterRender(() => {
+      console.log('afterRender');
+    });
+
+    // Listen only next changes
+    afterNextRender(() => {
+      console.log('afterNextRender');
+    });
+  }
+
+  ngAfterContentInit(): void {
+    console.log('AFTER CONTENT INIT');
+    console.log(this.control().nativeElement);
+  }
 
   onClick() {
     console.log('clicked');
