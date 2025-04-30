@@ -1,10 +1,16 @@
-<form class="flex flex-col items-start gap-y-4">
+<form
+  (ngSubmit)="onSubmit(titleInput.value, ticketText.value)"
+  class="flex flex-col items-start gap-y-4"
+  #form
+>
   <app-control title="Title">
     <input
       class="mt-2 block w-full h-8 bg-white rounded-sm shadow-sm p-2"
       id="title"
       name="title"
       type="text"
+      #titleInput
+      #input
     />
   </app-control>
   <app-control title="Request">
@@ -13,6 +19,8 @@
       id="request"
       name="request"
       rows="5"
+      #ticketText
+      #input
     ></textarea>
   </app-control>
   <button
