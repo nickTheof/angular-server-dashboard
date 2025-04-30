@@ -1,12 +1,18 @@
 <div class="flex flex-col gap-y-2 text-sm font-thin first-of-type:">
   @if (currentStatus() === 'online') {
-  <p class="text-lg animate-pulse text-purple-600">Servers are online</p>
+  <p class="text-lg font-bold animate-pulse text-purple-600">
+    Servers are online
+  </p>
   <p>All systems are operational.</p>
   } @else if (currentStatus() === 'offline') {
-  <p class="text-lg animate-pulse text-red-600">Servers are offline</p>
+  <p class="text-lg font-bold animate-pulse text-red-600">
+    Servers are offline
+  </p>
   <p>Functionality should be restored soon.</p>
   } @else {
-  <p class="text-lg animate-pulse text-gray-500">Server status is unknown</p>
+  <p class="text-lg font-bold animate-pulse text-gray-500">
+    Server status is unknown
+  </p>
   <p>Fetching server status failed.</p>
   }
 </div>
