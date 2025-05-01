@@ -2,7 +2,10 @@
   <ul class="flex flex-col gap-y-2 items-start w-full">
     @for (ticket of tickets; track ticket.id) {
     <li class="w-full">
-      <app-ticket [data]="ticket"></app-ticket>
+      <app-ticket
+        [data]="ticket"
+        (closedTicket)="onCloseTicket(ticket.id)"
+      ></app-ticket>
     </li>
     } @empty {
     <li>No tickets available</li>

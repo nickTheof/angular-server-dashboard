@@ -1,16 +1,18 @@
 <article
-  class="bg-[#59555f] text-[#ded8e6] rounded-md p-4 shadow-md w-full overflow-hidden break-words"
+  class="bg-[#59555f] text-[#ded8e6] rounded-md shadow-md w-full overflow-hidden break-words"
 >
-  <h3 class="flex flex-row w-full justify-between items-center p-2 text-sm">
+  <div
+    class="flex flex-row w-full justify-between items-center gap-x-2 px-2 py-1 text-sm"
+  >
     <div
-      class="size-4 rounded-full"
+      class="size-3 rounded-full"
       [class]="{
         'bg-[#de62e9]': data().status === 'open',
         'bg-[#51c788]': data().status === 'closed'
       }"
     ></div>
-    <button class="flex justify-between" (click)="onToggleDetails()">
-      <span class="text-sm">{{ data().title }}</span>
+    <button class="flex justify-between grow" (click)="onToggleDetails()">
+      <span class="text-base">{{ data().title }}</span>
       <span>
         @if (detailsVisible()) {
         <svg
@@ -19,7 +21,7 @@
           viewBox="0 0 24 24"
           stroke-width="1.5"
           stroke="currentColor"
-          class="w-6 h-6"
+          class="size-3"
         >
           <path
             stroke-linecap="round"
@@ -33,7 +35,7 @@
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
           fill="currentColor"
-          class="w-6 h-6"
+          class="size-3"
         >
           <path
             fill-rule="evenodd"
@@ -44,12 +46,20 @@
         }
       </span>
     </button>
-  </h3>
+  </div>
 
   @if (detailsVisible()) {
-  <p class="text-base mb-2">{{ data().request }}</p>
+  <div class="text-sm p-2">{{ data().request }}</div>
 
   @if (data().status === 'open') {
-  <p class="text-sm"><button>Mark as completed</button></p>
+  <div>
+    <button
+      (click)="onClose()"
+      type="button"
+      class="text-sm w-full h-4 rounded-md cursor-pointer hover:text-white"
+    >
+      Mark as completed
+    </button>
+  </div>
   } }
 </article>
